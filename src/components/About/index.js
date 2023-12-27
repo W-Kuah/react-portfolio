@@ -42,7 +42,7 @@ const About = () => {
           </p>
           <p align="LEFT">
             I believe the two most important attributes of a person is the desire to 
-            learn and integrated new knowledge consistently 
+            learn and integrate new knowledge consistently 
             and the ability to perform in high-pressure environments.
           </p>
           <p>
