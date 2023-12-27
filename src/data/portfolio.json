@@ -4,11 +4,11 @@
             "cover": "/portfolio/1/one.png",
             "title": "This Website",
             "description": "React, NodeJS, HTML, CSS",
-            "url": "https://www.warrenkuah.com"
+            "url": "https://github.com/W-Kuah/react-portfolio"
         },
         {
             "cover": "/portfolio/1/one.png",
-            "title": "This Website",
+            "title": "MERN Portfolio (WIP)",
             "description": "MongoDB, ExpressJS, React, NodeJSd",
             "url": "https://www.warrenkuah.com"
         }
