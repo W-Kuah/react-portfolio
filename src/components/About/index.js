@@ -46,7 +46,7 @@ const About = () => {
             and the ability to perform in high-pressure environments.
           </p>
           <p>
-            I can adapt to a dynamic work enivorment - I enjoy coordinating and cooperating with others, and at the same time,
+            I can adapt to a dynamic work environment - I enjoy coordinating and cooperating with others, and at the same time,
             I am proficient at working independently when the nature of the work requires a flow state.
           </p>
         </div>
