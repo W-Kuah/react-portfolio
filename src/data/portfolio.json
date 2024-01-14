@@ -11,6 +11,12 @@
             "title": "MERN Portfolio (WIP)",
             "description": "MongoDB, ExpressJS, React, NodeJS",
             "url": "https://www.warrenkuah.com"
+        },
+        {
+            "cover": "/portfolio/1/two.png",
+            "title": "Real Time Messaging App Demo",
+            "description": "Remix.Run, Prisma, Tailwind CSS, TypeScript",
+            "url": "https://github.com/W-Kuah/remix-chat"
         }
     ]
 }
