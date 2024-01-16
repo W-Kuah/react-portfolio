@@ -51,6 +51,7 @@
         .title {
             margin-bottom: 0;
             margin-top: 0;
+            max-width: calc(10% - 10px);
             color: #fff;
             font-size: 24px;
             font-weight: 500;
@@ -60,6 +61,7 @@
         .description {
             font-size: 14px;
             margin-bottom: 5px;
+            max-width: calc(75% - 10px);
             color: #fff;
             font-weight: 700;
         }
