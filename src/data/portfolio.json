@@ -14,8 +14,8 @@
         },
         {
             "cover": "/portfolio/1/two.png",
-            "title": "Messaging App Demo",
-            "description": "Remix.Run, Prisma, Tailwind CSS, TypeScript",
+            "title": "Chat App Demo",
+            "description": "Remix, Prisma, Tailwind CSS, TypeScript",
             "url": "https://github.com/W-Kuah/remix-chat"
         }
     ]

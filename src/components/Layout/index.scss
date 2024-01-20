@@ -127,6 +127,10 @@
     &.contact-page,
     &.about-page,
     &.portfolio-page {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      
       .text-zone {
         position: initial;
         transform: none;
@@ -135,13 +139,6 @@
         padding: 50px;
         box-sizing: border-box;
       }
-    }
-
-    &.portfolio-page {
-      width: 100%;
-      padding: 50px;
-      box-sizing: border-box;
-
       h1.page-title {
         margin-left: 20px;
         margin-top: 20px;
@@ -150,11 +147,76 @@
       .image-box {
         height: 200px;
         max-width: calc(50% - 10px);
-
-        .description {
-          margin-right: 10px;
-        }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .page {
+    position: initial;
+  }
+
+  .container {
+
+    &.portfolio-page {
+
+      .content {
+        padding: 5px 10px;
+      }
+
+      .image-box {
+        height: 200px;
+        max-width: calc(50% - 10px);
+
+        // .portfolio-image {
+        //   height: 50%;
+        //   translate: 0 50%;
+        // }
+
+        .title {
+          display: block;
+          max-width: 20px;
+          font-size: calc(24px - 50%);
+          line-height: calc(24px - 20%);
+        }
+        .description {
+          font-size: calc(14px - 20%);
+        }
+
+
+      }
+      
+    }
+  }
+}
+
+@media screen and (max-width: 345px) {
+  .page {
+    position: initial;
+  }
+
+  .container {
+
+    &.portfolio-page {
+
+      .image-box {
+        .content {
+          padding: 4px 8px;
+        }
+        .title {
+          display: block;
+          max-width: 20px;
+          font-size: calc(24px - 60%);
+          line-height: calc(24px - 20%);
+        }
+        .description {
+          font-size: calc(14px - 30%);
+        }
+
+
+      }
+      
     }
   }
 }
