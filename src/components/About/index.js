@@ -37,18 +37,28 @@ const About = () => {
             />
           </h1>
           <p>
-            As a full-stack developer, I enjoy crafting end-to-end solutions for web development,
-            business automation and all things related to software and technology.
+            As an aspiring <b>full-stack</b> developer, I aim to continue honing my <b>back-end</b> and <b>front-end</b> skills.
+            I have worked in <b>diverse industries</b> not limited but including the energy, analytics, media, motorsports, and music.
           </p>
           <p align="LEFT">
-            I believe the two most important attributes of a person is the desire to 
-            learn and integrate new knowledge consistently 
-            and the ability to perform in high-pressure environments.
+            But everyone can code! <u>So why work with me?</u>
           </p>
-          <p>
-            I can adapt to a dynamic work environment - I enjoy coordinating and cooperating with others, and at the same time,
-            I am proficient at working independently when the nature of the work requires a flow state.
-          </p>
+          <ul>
+              <li id="point">
+                I have experience working in <b>cross-functional teams</b> - knowing how to properly <b>communicate</b> and <b>reassure</b> stakeholders 
+                that aren't necessarily software developers or techies is an important skill I have cultivated.
+              </li>
+              <br></br>
+              <li id="point">
+                I excel at being an <b>introvert</b> and an <b>extrovert</b> - whether you need me tightly coordinating with a team or going solo on a project,
+                I deliver my best with <b>versatility</b> and <b>enthusiasm</b>. 
+              </li>
+              <br></br>
+              <li id="point">
+                I believe in <b>pro-active communication</b> - working with a new hire can be tricky, 
+                I relish the opportunity to dive in, ask questions, and quickly <b>adapt</b> to the team's dynamics. 
+              </li>
+            </ul>
         </div>
 
         <div className="stage-cube-cont">

@@ -51,7 +51,7 @@ const Contact = () => {
             />
           </h1>
           <p>
-            I am looking for an entry-level developer position - in familiar and unfamiliar industries. 
+            I am interested in a developer role that challenges me.
             If you have any queries or you are just looking to have chat, feel free to reach out.
           </p>
           <div className="contact-form">
