@@ -7,28 +7,22 @@
             "url": "https://github.com/W-Kuah/react-portfolio"
         },
         {
-            "cover": "/portfolio/4/four.png",
-            "title": "Wazzup: Social Media App for Devs",
+            "cover": "/portfolio/4/one.png",
+            "title": "Social Media App for Devs",
             "description": "Remix, React, TailwindCSS, TypeScript & Supabase",
             "url": "https://remix-social-eta.vercel.app/"
         },
         {
-            "cover": "/portfolio/2/two.png",
+            "cover": "/portfolio/2/one.png",
             "title": "Chat App Demo",
             "description": "Remix, Prisma, Tailwind CSS, TypeScript",
             "url": "https://github.com/W-Kuah/remix-chat"
         },
         {
-            "cover": "/portfolio/3/three.png",
+            "cover": "/portfolio/3/one.png",
             "title": "Contact Book Demo",
             "description": "Remix, React, CSS, HTML",
             "url": "https://github.com/W-Kuah/remix-contact-book"
         },
-        {
-            "cover": "/portfolio/wip/wip.png",
-            "title": "MERN Portfolio (WIP)",
-            "description": "MongoDB, ExpressJS, React, NodeJS",
-            "url": "https://www.warrenkuah.com"
-        }
     ]
 }

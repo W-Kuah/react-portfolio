@@ -137,7 +137,7 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px){
   .page {
     position: initial;
   }
@@ -166,13 +166,36 @@
         margin-left: 20px;
         margin-top: 20px;
       }
+      
 
       .image-box {
         height: 200px;
         max-width: calc(50% - 10px);
+        .content{
+          // max-height: 25rem;
+          .title {
+            font-size: 2.5rem;
+            line-height: 2.5rem;
+          }
+          
+          .description {
+            font-size: 1.5vw;
+            line-height: 2vw;
+          }
+          .btn {
+            font-size: 1rem;
+          }
+        }
+        
       }
+
+
+      
+      
     }
+    
   }
+  
 }
 
 @media screen and (max-width: 500px) {
@@ -189,52 +212,17 @@
       }
 
       .image-box {
-        height: 200px;
-        max-width: calc(50% - 10px);
-
-        // .portfolio-image {
-        //   height: 50%;
-        //   translate: 0 50%;
-        // }
 
         .title {
-          display: block;
-          max-width: 20px;
-          font-size: calc(24px - 50%);
-          line-height: calc(24px - 20%);
-        }
-        .description {
-          font-size: calc(14px - 20%);
+          // display: block;
+          // max-width: 20px;
+          max-width: 8.5rem;
+          font-size: 2rem;
+          line-height: 2rem;
         }
 
-
-      }
-      
-    }
-  }
-}
-
-@media screen and (max-width: 345px) {
-  .page {
-    position: initial;
-  }
-
-  .container {
-
-    &.portfolio-page {
-
-      .image-box {
-        .content {
-          padding: 4px 8px;
-        }
-        .title {
-          display: block;
-          max-width: 20px;
-          font-size: calc(24px - 60%);
-          line-height: calc(24px - 20%);
-        }
-        .description {
-          font-size: calc(14px - 30%);
+        .description{
+          display:none;
         }
 
 
