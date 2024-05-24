@@ -184,6 +184,7 @@
           }
           .btn {
             font-size: 1rem;
+            padding: 0 2vw;
           }
         }
         
@@ -207,25 +208,23 @@
 
     &.portfolio-page {
 
-      .content {
-        padding: 5px 10px;
-      }
-
       .image-box {
-
-        .title {
-          // display: block;
-          // max-width: 20px;
-          max-width: 8.5rem;
-          font-size: 2rem;
-          line-height: 2rem;
+        .content {
+          padding: 5px 10px;
+          .title {
+            // display: block;
+            // max-width: 20px;
+            max-width: 7rem;
+            font-size: 1.5rem;
+            line-height: 1.5rem;
+          }
+  
+          .description{
+            display:none;
+          }
         }
 
-        .description{
-          display:none;
-        }
-
-
+        
       }
       
     }
