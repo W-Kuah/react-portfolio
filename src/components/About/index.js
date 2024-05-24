@@ -38,10 +38,10 @@ const About = () => {
           </h1>
           <p>
             As an aspiring <b>full-stack</b> developer, I aim to continue honing my <b>back-end</b> and <b>front-end</b> skills.
-            I have worked in <b>diverse industries</b> not limited but including the energy, analytics, media, motorsports, and music.
+            I have worked in <b>diverse industries</b> not limited to but including the energy, analytics, media, motorsports, and music market.
           </p>
           <p align="LEFT">
-            But everyone can code! <u>So why work with me?</u>
+            But everyone can learn to code! <u>So why work with me?</u>
           </p>
           <ul>
               <li id="point">
@@ -56,7 +56,7 @@ const About = () => {
               <br></br>
               <li id="point">
                 I believe in <b>pro-active communication</b> - working with a new hire can be tricky, 
-                I relish the opportunity to dive in, ask questions, and quickly <b>adapt</b> to the team's dynamics. 
+                I relish the opportunity to dive in, ask questions, <b>actively seek feedback</b>, and <b>quickly adapt</b> to the team's dynamics.
               </li>
             </ul>
         </div>
