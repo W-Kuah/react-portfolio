@@ -37,7 +37,7 @@ const About = () => {
             />
           </h1>
           <p>
-            As an aspiring <b>full-stack</b> developer, I aim to continue honing my <b>back-end</b> and <b>front-end</b> skills.
+            Results-driven developer focused on <b>streamlining and optimizing processes</b> and <b>designing user-centric systems</b> to ensure bottom-line business success.
             I have worked in <b>diverse industries</b> not limited to but including the energy, analytics, media, motorsports, and music market.
           </p>
           <p align="LEFT">

@@ -51,7 +51,7 @@ const Contact = () => {
             />
           </h1>
           <p>
-            I am interested in a developer role that challenges me.
+            I am interested in a challenging developer role where I can leverage and develop my skills in front-end, back-end, and data to provide tangible value to users.
             If you have any queries or you are just looking to have chat, feel free to reach out.
           </p>
           <div className="contact-form">
