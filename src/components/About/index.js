@@ -41,7 +41,7 @@ const About = () => {
             I have worked in <b>diverse industries</b> not limited to but including the energy, analytics, media, motorsports, and music market.
           </p>
           <p align="LEFT">
-            "OI - anyone can learn to code! <u>So what's so special about you?</u>"
+            "Hey! - anyone can learn to code! <u>So what's so special about you?</u>"
           </p>
           <ul>
               <li id="point">

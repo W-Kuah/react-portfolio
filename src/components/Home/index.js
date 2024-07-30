@@ -11,19 +11,18 @@ const Home = () => {
     const [letterClass, setLetterClass] = useState('text-animate')
     const nameArray = ['a', 'r', 'r', 'e', 'n', ',']
     const jobArray = [
+        'S', 
+        'o',  
+        'f', 
+        't', 
         'w', 
-        'e',  
-        'b', 
-        ' ', 
-        'd', 
-        'e', 
-        'v', 
-        'e', 
-        'l', 
-        'o', 
-        'p', 
-        'e', 
+        'a', 
         'r', 
+        'e', 
+        ' ', 
+        'D', 
+        'e', 
+        'v',
         '.'
     ]
     useEffect(() => {
@@ -57,7 +56,7 @@ const Home = () => {
                     strArray={jobArray}
                     idx={29}/>
                     </h1>
-                    <h2>Aspiring Full-Stack Developer / Process Analyst</h2>
+                    <h2>Full-Stack Developer / Process Analyst</h2>
                     <Link to="/contact" className='flat-button'>
                         CONTACT ME
                     </Link>
