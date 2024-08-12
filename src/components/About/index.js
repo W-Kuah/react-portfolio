@@ -37,8 +37,8 @@ const About = () => {
             />
           </h1>
           <p>
-            Results-driven developer focused on <b>streamlining and optimizing processes</b> and <b>designing user-centric systems</b> to ensure bottom-line business success.
-            I have worked in <b>diverse industries</b> not limited to but including the energy, analytics, media, motorsports, and music market.
+          Results-driven software engineer focused on collaborative development using trunk-based workflow to implement user-centric applications. 
+          I am interested in a position where I can leverage and develop my skills in front-end frameworks, APIs, testing and cloud.
           </p>
           <p align="LEFT">
             "Hey! - anyone can learn to code! <u>So what's so special about you?</u>"
