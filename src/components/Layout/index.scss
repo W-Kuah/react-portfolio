@@ -167,27 +167,12 @@
         margin-top: 20px;
       }
       
-
+      .images-container {
+        justify-content: center;
+      }
       .image-box {
         height: 200px;
         max-width: calc(50% - 10px);
-        .content{
-          // max-height: 25rem;
-          .title {
-            font-size: 2.5rem;
-            line-height: 2.5rem;
-          }
-          
-          .description {
-            font-size: 1.5vw;
-            line-height: 2vw;
-          }
-          .btn {
-            font-size: 1rem;
-            padding: 0 2vw;
-          }
-        }
-        
       }
 
 
@@ -199,34 +184,3 @@
   
 }
 
-@media screen and (max-width: 500px) {
-  .page {
-    position: initial;
-  }
-
-  .container {
-
-    &.portfolio-page {
-
-      .image-box {
-        .content {
-          padding: 5px 10px;
-          .title {
-            // display: block;
-            // max-width: 20px;
-            max-width: 7rem;
-            font-size: 1.5rem;
-            line-height: 1.5rem;
-          }
-  
-          .description{
-            display:none;
-          }
-        }
-
-        
-      }
-      
-    }
-  }
-}
