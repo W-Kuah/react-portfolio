@@ -31,7 +31,10 @@ const Sidebar = () =>  {
                 <img src={LogoS} alt="logo" />
                 <img className='sub-logo' src={LogoSubtitle} alt="Warren" />
             </Link>
+            <div className={`overlay ${showNav ? 'mobile-show': ''}`}></div>
             <nav className={showNav ? 'mobile-show' : ''}>
+                <div>
+                </div>
                 <NavLink exact="true" activeclassname="active" to="/" onClick={() => setShowNav(false)}>
                     <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
                 </NavLink>
