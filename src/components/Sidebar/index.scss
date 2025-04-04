@@ -131,7 +131,7 @@
   }
 }
 
-.hamburger-icon, .close-icon {
+.hamburger-menu {
   display: none;
 }
 
@@ -148,18 +148,28 @@
      }
 
      nav {
-      width: 100%;
+      // width: 100%;
       top: 0;
-      left: 0;
-      background: #181818;
+      right: 0;
+      // background: #181818;
       opacity: 99%;
       height: 100%;
       margin: 0;
       z-index: 2;
       position: fixed;
 
+      display: block;
+      transition: translate var(--animation-timing);
+      translate: 100%;
+      padding: 0.5rem 1rem;
+      padding-top: calc(var(--hamburger-height) + var(--hamburger-margin));
+      background-color: #181818;
+      max-width: 30rem;
+      min-height: 100vh;
+
       &.mobile-show {
-        display: block;
+        // display: block;
+        translate: 0;
       }
 
       a {
@@ -181,11 +191,59 @@
      }
 
      .hamburger-icon,
-     .close-icon {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        display: block;
+    //  .close-icon {
+    //     position: absolute;
+    //     top: 15px;
+    //     right: 15px;
+    //     display: block;
+    //  }
+     .hamburger-menu {
+      --x-width: calc(var(--hamburger-height) * 1.41421356237);
+
+      padding-top: 15px;
+      padding-right: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--hamburger-gap);
+      width: max-content;
+      position: absolute;
+      top: var(--hamburger-margin);
+      right: var(--hamburger-margin);
+      z-index: 2;
+      cursor: pointer;
      }
+     .hamburger-menu::before,
+     .hamburger-menu::after,
+     .hamburger-menu input {
+        content: "";
+        width: var(--bar-width);
+        height: var(--bar-height);
+        background-color: var(--primary-color);
+        border-radius: 9999px;
+        transform-origin: right center;
+        transition: opacity var(--animation-timing), width var(--animation-timing), rotate var(--animation-timing), translate var(--animation-timing), background-color var(--animation-timing);
+     }
+     .hamburger-menu input {
+      appearance: none;
+      padding: 0;
+      margin: 0;
+      outline: none;
+      outline: none;
+      pointer-events: none;
+     }
+    .hamburger-menu:has(input:checked)::before {
+      rotate: -45deg;
+      width: var(--x-width);
+      translate: 0 calc(var(--bar-height) / -2);
+    }
+    .hamburger-menu:has(input:checked)::after {
+      rotate: 45deg;
+      width: var(--x-width);
+      translate: 0 calc(var(--bar-height) / 2);
+    }
+    .hamburger-menu input:checked {
+      opacity: 0;
+      width: 0;
+    }
   }
 }

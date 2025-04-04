@@ -46,12 +46,12 @@ const Sidebar = () =>  {
                 <NavLink exact="true" activeclassname="active" className="contact-link" to="/contact" onClick={() => setShowNav(false)}>
                     <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
                 </NavLink>
-                <FontAwesomeIcon 
+                {/* <FontAwesomeIcon 
                     onClick={() => setShowNav(false)}
                     icon={faClose}
                     color="#ffd700"
                     size="3x"
-                    className='close-icon' />
+                    className='close-icon' /> */}
             </nav>
             <ul>
                 <li>
@@ -65,24 +65,20 @@ const Sidebar = () =>  {
                     </a>
                 </li>
             </ul>
-            <FontAwesomeIcon
+            {/* <FontAwesomeIcon
                 icon={faBars}
                 color='#8EF4FF'
                 size="3x"
                 className="hamburger-icon"
                 onClick={() => setShowNav(true)}
-            /> 
+            />  */}
             <label class="hamburger-menu">
-                <input type="checkbox" />
+                <input
+                    type="checkbox" 
+                    onClick={() => setShowNav(prevState => !prevState)}
+                    checked={showNav}
+                    />
             </label>
-            <aside class="sidebar">
-                <nav>
-                    <div>This</div>
-                    <div>Is</div>
-                    <div>The</div>
-                    <div>SideBar</div>
-                </nav>
-            </aside>
         </div>
     )
 }
