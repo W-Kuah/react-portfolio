@@ -117,7 +117,7 @@
       a {
         padding: 7px 0;
         display: block;
-        font-size: 15px;
+        font-size: 1em;
         line-height: 16px;
         color: #4d4d4e;
       }
@@ -171,12 +171,15 @@
       }
 
       a {
+        font-size: 2em;
+        height: 71px;
         display: flex;
         justify-content: center;
         align-items: center;
       }
 
       a:after {
+        font-size: 0.5em;
         opacity: 1;
         position: initial;
         width: auto;

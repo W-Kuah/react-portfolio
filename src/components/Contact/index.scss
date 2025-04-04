@@ -39,7 +39,7 @@
         border: 0;
         background: #115173;
         height: 50px;
-        font-size: 16;
+        font-size: 1em;
         color: #fff;
         padding: 0 20px;
         box-sizing: border-box;
@@ -50,7 +50,7 @@
         border: 0;
         background: #115173;
         height: 50px;
-        font-size: 16px;
+        font-size: 1em;
         color: #fff;
         padding: 20px;
         min-height: 150px;
@@ -86,14 +86,14 @@
     padding: 20px;
     color: #fff;
     font-family: 'Helvetica';
-    font-size: 17px;
+    font-size: 1.07em;
     font-weight: 300;
     opacity: 0;
     animation: fadeIn 1s 1.5s;
     animation-fill-mode: forwards;
     
     span {
-        font-size: 16px;
+        font-size: 1em;
         display: block;
         padding-top: 20px;
         color: #8EF4FF;
