@@ -1,4 +1,25 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+
 $primary-color: #8EF4FF;
+$background-color: #022c43;
+:root{ 
+  --primary-color: #{$primary-color};
+  --background-color: #{$background-color};
+  --bar-width: 29px;
+  --bar-height: 4px;
+  --hamburger-gap: 6px;
+  --hamburger-margin: 5px;
+  --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+
+  --animation-timing: 200ms ease-in-out;
+}
 @import 'animate.css';
 @import '~loaders.css/src/animations/triangle-skew-spin.scss';
 
@@ -35,6 +56,6 @@ textarea {
   height: 50px;
   animation: fadeOut 1s 1s;
   animation-fill-mode: forwards;
-  fill: #8EF4FF;
+  fill: var(--primary-color);
 
 } 
