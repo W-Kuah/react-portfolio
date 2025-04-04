@@ -9,6 +9,10 @@ body {
   display: block;
 }
 
+body:has(.mobile-show) {
+  overflow: hidden;
+}
+
 .dashboard {
   margin-top: 200px;
   margin-left: 200px;
