@@ -34,7 +34,7 @@
 
     a {
       font-size: 22px;
-      color: #4d4d4e;
+      color: white;
       display: block;
       line-height: 51px;
       height: 51px;
@@ -148,10 +148,8 @@
      }
 
      nav {
-      // width: 100%;
       top: 0;
       right: 0;
-      // background: #181818;
       opacity: 99%;
       height: 100%;
       margin: 0;
@@ -168,7 +166,6 @@
       min-height: 100vh;
 
       &.mobile-show {
-        // display: block;
         translate: 0;
       }
 
@@ -190,13 +187,7 @@
       }
      }
 
-     .hamburger-icon,
-    //  .close-icon {
-    //     position: absolute;
-    //     top: 15px;
-    //     right: 15px;
-    //     display: block;
-    //  }
+
      .hamburger-menu {
       --x-width: calc(var(--hamburger-height) * 1.41421356237);
 

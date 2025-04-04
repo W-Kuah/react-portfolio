@@ -8,12 +8,10 @@ import {
     faGithub
 } from '@fortawesome/free-brands-svg-icons'
 import { 
-    faBars,
     faEnvelope, 
     faHome, 
     faSuitcase, 
     faUser,
-    faClose
 } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
 
@@ -46,12 +44,7 @@ const Sidebar = () =>  {
                 <NavLink exact="true" activeclassname="active" className="contact-link" to="/contact" onClick={() => setShowNav(false)}>
                     <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
                 </NavLink>
-                {/* <FontAwesomeIcon 
-                    onClick={() => setShowNav(false)}
-                    icon={faClose}
-                    color="#ffd700"
-                    size="3x"
-                    className='close-icon' /> */}
+                
             </nav>
             <ul>
                 <li>
@@ -65,13 +58,7 @@ const Sidebar = () =>  {
                     </a>
                 </li>
             </ul>
-            {/* <FontAwesomeIcon
-                icon={faBars}
-                color='#8EF4FF'
-                size="3x"
-                className="hamburger-icon"
-                onClick={() => setShowNav(true)}
-            />  */}
+            
             <label class="hamburger-menu">
                 <input
                     type="checkbox" 
