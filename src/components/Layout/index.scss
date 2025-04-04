@@ -15,7 +15,7 @@
   position: absolute;
   bottom: 0;
   left: 120px;
-  font-size: 18px;
+  font-size: 1.125em;
   font-family: 'La Belle Aurore', cursive;
 }
 
@@ -48,7 +48,7 @@
   
   
     h1 {
-      font-size: 53px;
+      font-size: 3.34em;
       font-family: 'Coolvetica';
       color: #8EF4FF;
       font-weight: 400;
@@ -56,6 +56,7 @@
       position: relative;
       margin-bottom: 40px;
       left: -10px;
+      white-space: nowrap;
 
       &:before {
         content: '<h1>';
@@ -84,7 +85,7 @@
     }
 
     p {
-      font-size: 13px;
+      font-size: 1em;
       color: #fff;
       font-family: sans-serif;
       font-weight: 300;
@@ -101,7 +102,7 @@
       }
     }
     #point{
-      font-size: 13px;
+      font-size: 0.9em;
       color: #fff;
       font-family: sans-serif;
       font-weight: 300;
