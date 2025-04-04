@@ -71,7 +71,18 @@ const Sidebar = () =>  {
                 size="3x"
                 className="hamburger-icon"
                 onClick={() => setShowNav(true)}
-            />
+            /> 
+            <label class="hamburger-menu">
+                <input type="checkbox" />
+            </label>
+            <aside class="sidebar">
+                <nav>
+                    <div>This</div>
+                    <div>Is</div>
+                    <div>The</div>
+                    <div>SideBar</div>
+                </nav>
+            </aside>
         </div>
     )
 }
