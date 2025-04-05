@@ -169,12 +169,16 @@
       }
       
       .images-container {
-        justify-content: center;
+        justify-content: space-around;
         padding: 2.5%;
+        gap: 1%;
       }
       .image-box {
-        height: 200px;
-        max-width: calc(50% - 10px);
+        flex: 1 1;
+        margin: 1%;
+        max-height: 200px;
+        min-width: 200px;
+        max-width: 300px;
       }
 
 
