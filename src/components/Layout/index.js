@@ -1,19 +1,36 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import Sidebar from '../Sidebar/'
 import './index.scss'
 
 const Layout = () => {
+  const location = useLocation();
+  let hiddenTag = false;
+  const isTagHidden = () => {
+    switch (location.pathname) {
+      case '/':
+        hiddenTag = "hidden-tags"
+        break;
+      default:
+        hiddenTag = "show-tags"
+        break;
+    }
+  };
+  isTagHidden();
   return (
     <div className="App">
       <Sidebar />
       <div className="page">
-        <span className="tags top-tags">&lt;body&gt;</span>
+        <span className={`tags top-tags ${hiddenTag}`}>
+          &lt;body&gt;
+          </span>
 
         <Outlet />
-        <span className="tags bottom-tags">
+        <span className={`tags bottom-tags ${hiddenTag}`}>
           &lt;/body&gt;
           <br />
-          <span className="bottom-tag-html">&lt;/html&gt;</span>
+          <span className={`bottom-tag-html ${hiddenTag}`}>
+            &lt;/html&gt;
+            </span>
         </span>
       </div>
     </div>

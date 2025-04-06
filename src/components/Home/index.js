@@ -5,6 +5,7 @@ import AnimatedLetters from '../AnimatedLetters';
 import Logo from './Logo';
 import './index.scss'
 import Loader from 'react-loaders';
+import ParticlesComp from '../ParticlesComp';
 
 
 const Home = () => {
@@ -38,7 +39,10 @@ const Home = () => {
 
 
     return (
-        <>
+        <>  
+            <div className="tsparticles"> 
+                <ParticlesComp/>
+            </div>
             <div className="container home-page">
                 <div className="text-zone">
                     <h1>

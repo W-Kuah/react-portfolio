@@ -16,29 +16,29 @@
         font-family: 'Coolvetica';
         font-weight: 400;
 
-        &::before {
-            content: '<h1>';
-            font-family: 'La Belle Aurore', cursive;
-            color: #8EF4FF;
-            font-size: 18px;
-            position: absolute;
-            margin-top: -40px;
-            left: 15px;
-            // animation: fadeIn 0s 1s backwards;
-            opacity: 1;
-        }
+        // &::before {
+        //     content: '<h1>';
+        //     font-family: 'La Belle Aurore', cursive;
+        //     color: #8EF4FF;
+        //     font-size: 18px;
+        //     position: absolute;
+        //     margin-top: -40px;
+        //     left: 15px;
+        //     // animation: fadeIn 0s 1s backwards;
+        //     opacity: 1;
+        // }
 
-        &::after {
-            content: '</h1>';
-            font-family: 'La Belle Aurore', cursive;
-            color: #8EF4FF;
-            font-size: 18px;
-            position: absolute;
-            margin-top: 18px;
-            margin-left: 20px;
-            animation: fadeIn 1s 3.6s backwards;
-            opacity: 1;
-        }
+        // &::after {
+        //     content: '</h1>';
+        //     font-family: 'La Belle Aurore', cursive;
+        //     color: #8EF4FF;
+        //     font-size: 18px;
+        //     position: absolute;
+        //     margin-top: 18px;
+        //     margin-left: 20px;
+        //     animation: fadeIn 1s 3.6s backwards;
+        //     opacity: 1;
+        // }
 
         img {
             width: 88px;
@@ -131,4 +131,6 @@
       left: -80.5px;
       margin: auto;
     }
+    
+  
 }
