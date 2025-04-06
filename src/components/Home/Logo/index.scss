@@ -17,6 +17,21 @@
         // transform: rotateZ(30deg) !important;
     }
 
+    @keyframes float {
+        0% {
+          transform: translateY(0px);
+          filter: drop-shadow(0 15px 10px rgba(0, 0, 0, 0.3));
+        }
+        50% {
+          transform: translateY(-20px); 
+          filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.2));
+        }
+        100% {
+          transform: translateY(0px);
+          filter: drop-shadow(0 15px 10px rgba(0, 0, 0, 0.3));
+        }
+      }
+
     .solid-logo {
         position: absolute;
         top: -30px;
@@ -30,13 +45,17 @@
         // transform: rotateZ(30deg);
         animation: fadeIn 1s 5s backwards;
         z-index: -1;
+
+        animation: float 3s ease-in-out infinite;
     }
 }
 
 .svg-container {
-    translate: 0 -88px;
+    // translate: 0 0px;
     stroke: #f0f0f0;
     stroke-width: 3;
+    width: 600px;
+    overflow: visible;
 }
 
 // .svg-ani1 {
