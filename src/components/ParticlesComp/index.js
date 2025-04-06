@@ -54,7 +54,7 @@ const ParticlesComp = () => {
                     },
                     links: {
                         color: "#ffffff",
-                        distance: 300,
+                        distance: 250,
                         enable: true,
                         opacity: 0.2,
                         width: 0.5,
@@ -72,9 +72,9 @@ const ParticlesComp = () => {
                     number: {
                         density: {
                             enable: true,
-                            area: 700,
+                            area: 1000,
                         },
-                        value: 50,
+                        value: 70,
                     },
                     opacity: {
                         value: 0.1,
@@ -83,7 +83,7 @@ const ParticlesComp = () => {
                         type: "circle",
                     },
                     size: {
-                        value: { min: 1, max: 5 },
+                        value: { min: 1, max: 3 },
                     },
                 },
                 detectRetina: true,
