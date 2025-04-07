@@ -7,6 +7,8 @@
     position: absolute;
     right: 0;
     overflow: hidden;
+    translate: 0 90%;
+    animation: brakeIn 1.5s cubic-bezier(0.5, 1.5, 0.5, 1) 1.5s forwards
   }
 
   
@@ -19,6 +21,7 @@
     transform-style: preserve-3d;
     transform-origin: 100px 100px 0;
     margin-left: calc(50% - 100px);
+    
   
     div {
       position: absolute;
@@ -54,16 +57,7 @@
     }
 }
 
-@keyframes fadeInVar2 {
-  0% {
-      opacity: 0;
-      translate: 0 -25%;
-  }
-  100% {
-      opacity: 1;
-      translate: 0  0%;
-  }
-}
+
 
 .tsparticles-cube-container {
   display: grid;
@@ -88,7 +82,7 @@
   // border: solid grey 2px;
 }
   
-  @keyframes spincube {
+@keyframes spincube {
     from,
     to {
       transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
@@ -108,7 +102,27 @@
     83% {
       transform: rotateX(90deg);
     }
+}
+
+@keyframes fadeInVar2 {
+  0% {
+      opacity: 0;
+      translate: 0 -25%;
   }
+  100% {
+      opacity: 1;
+      translate: 0  0%;
+  }
+}
+
+@keyframes brakeIn {
+  0% {
+    translate: 0 90%;
+  }  
+  100% {
+    translate: 0 0%;
+  }
+}
 
 @media screen and (max-width: 1200px) {
     .stage-cube-cont {
