@@ -32,7 +32,7 @@ const Sidebar = () =>  {
                 <img className='sub-logo' src={LogoSubtitle} alt="Warren" />
             </Link>
             <div className={`overlay ${showNav ? 'mobile-show': ''}`}></div>
-            <nav className={showNav ? 'mobile-show' : ''}>
+            <nav className={showNav ? 'mobile-show' : 'mobile-hidden'}>
                 <div>
                 </div>
                 <NavLink exact="true" activeclassname="active" to="/" onClick={() => setShowNav(false)}>
