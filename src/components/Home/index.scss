@@ -112,3 +112,13 @@
     
   
 }
+.tsparticles-home-container {
+  @keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+  }
+  opacity: 0;
+  z-index: -1;
+  animation: fadeIn 3s ease-in-out forwards;
+  animation-delay: 1s;
+}

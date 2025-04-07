@@ -3,7 +3,7 @@ import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim"; 
 
 
-const ParticlesHome = () => {
+const ParticlesCube = () => {
   const particlesInit = useCallback(async engine => {
     console.log(engine);
     
@@ -16,24 +16,27 @@ const ParticlesHome = () => {
 
   return (
     <Particles
-            id="tsparticles"
+            id="tsparticles2"
+            className="tsparticles-cube"
             init={particlesInit}
             loaded={particlesLoaded}
             options={{
-                // background: {
-                //     color: {
-                //         value: "#0d47a1",
-                //     },
-                // },
-                fpsLimit: 120,
+                fullScreen: {
+                    zIndex: -1,
+                    enable: false
+                },
+                style: {
+                    position: "absolute"
+                },
+                fpsLimit: 30,
                 interactivity: {
                     events: {
                         onClick: {
-                            enable: true,
+                            enable: false,
                             mode: "push",
                         },
                         onHover: {
-                            enable: true,
+                            enable: false,
                             mode: "repulse",
                         },
                         resize: true,
@@ -55,35 +58,35 @@ const ParticlesHome = () => {
                     links: {
                         color: "#ffffff",
                         distance: 250,
-                        enable: true,
+                        enable: false,
                         opacity: 0.2,
                         width: 0.5,
                     },
                     move: {
-                        direction: "right",
+                        direction: "top",
                         enable: true,
                         outModes: {
                             default: "out",
                         },
                         random: false,
-                        speed: 5,
+                        speed: 2,
                         straight: false,
                     },
                     number: {
                         density: {
                             enable: true,
-                            area: 1000,
+                            area: 100,
                         },
-                        value: 70,
+                        value: 19,
                     },
                     opacity: {
-                        value: 0.1,
+                        value: { min: 0.5, max: 1 },
                     },
                     shape: {
-                        type: "circle",
+                        type: "edge",
                     },
                     size: {
-                        value: { min: 1, max: 3 },
+                        value: { min: 0.1, max: 2 },
                     },
                 },
                 detectRetina: true,
@@ -92,4 +95,4 @@ const ParticlesHome = () => {
   )
 }
 
-export default ParticlesHome;
+export default ParticlesCube;

@@ -11,6 +11,7 @@ import Loader from 'react-loaders'
 import AnimatedLetters from '../AnimatedLetters'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './index.scss'
+import ParticlesCube from './ParticlesCube'
 
 const About = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
@@ -27,6 +28,10 @@ const About = () => {
 
   return (
     <>
+      <div className="tsparticles-cube-container">
+        <div></div>
+        <ParticlesCube/>
+      </div>
       <div className="container about-page">
         <div className="text-zone">
           <h1>

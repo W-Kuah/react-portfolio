@@ -146,6 +146,11 @@
       color: #fff;
     }
   }
+  
+}
+.tsparticles-cube{
+  grid-column: 2;
+  // border: solid grey 2px;
 }
 
 @media screen and (max-width: 1200px){
@@ -198,15 +203,5 @@
     
   }
   
-}
-.tsparticles {
-  @keyframes fadeIn {
-    from {opacity: 0}
-    to {opacity: 1}
-  }
-  opacity: 0;
-  z-index: -1;
-  animation: fadeIn 3s ease-in-out forwards;
-  animation-delay: 1s;
 }
 
