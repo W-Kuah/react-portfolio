@@ -4,7 +4,7 @@ import './index.scss'
 
 const Layout = () => {
   const location = useLocation();
-  let hiddenTag = false;
+  let hiddenTag = "";
   const isTagHidden = () => {
     switch (location.pathname) {
       case '/':

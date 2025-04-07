@@ -3,7 +3,7 @@ import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim"; 
 
 
-const ParticlesComp = () => {
+const ParticlesHome = () => {
   const particlesInit = useCallback(async engine => {
     console.log(engine);
     
@@ -92,4 +92,4 @@ const ParticlesComp = () => {
   )
 }
 
-export default ParticlesComp;
+export default ParticlesHome;
