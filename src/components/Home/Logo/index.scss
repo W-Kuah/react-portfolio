@@ -1,10 +1,10 @@
 .logo-container{
-    z-index: -1;
+    z-index: 0;
     width: 500px;
     height: 550px;
     position: absolute;
     top: 0;
-    right: 15%;
+    right: 20%;
     bottom: 0;
     left: auto;
     margin: auto;
@@ -17,26 +17,59 @@
         // transform: rotateZ(30deg) !important;
     }
 
+    @keyframes float {
+        0% {
+          transform: translateY(0px);
+          filter: drop-shadow(0 15px 10px rgba(0, 0, 0, 0.3));
+        }
+        50% {
+          transform: translateY(-20px); 
+          filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.2));
+        }
+        100% {
+          transform: translateY(0px);
+          filter: drop-shadow(0 15px 10px rgba(0, 0, 0, 0.3));
+        }
+    }
+
+    @keyframes fadeInVar {
+        0% {
+            opacity: 0;
+            translate: -8%;
+        }
+        100% {
+            opacity: 1;
+            translate: 0px;
+        }
+    }
+
     .solid-logo {
         position: absolute;
         top: -30px;
         right: 0px;
         bottom: 0px;
         left: -121px;
+        opacity: 0;
         // margin: auto;
         width: 157%;
-        opacity: 1;
         // translate: -150px -100px;
         // transform: rotateZ(30deg);
-        animation: fadeIn 1s 5s backwards;
         z-index: -1;
+        // animation-delay: 4s;
+        animation: 
+            fadeInVar 2s ease-out 3.7s forwards,
+            float 3s ease-in-out infinite;
     }
+
+
 }
 
 .svg-container {
-    translate: 0 -88px;
+    // translate: 0 0px;
     stroke: #f0f0f0;
     stroke-width: 3;
+    width: 600px;
+    overflow: visible;
 }
 
 // .svg-ani1 {

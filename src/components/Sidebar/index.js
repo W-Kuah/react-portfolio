@@ -62,7 +62,7 @@ const Sidebar = () =>  {
                 </li>
             </ul>
             
-            <label class="hamburger-menu">
+            <label className="hamburger-menu">
                 <input
                     type="checkbox" 
                     onClick={() => setShowNav(prevState => !prevState)}

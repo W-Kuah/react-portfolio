@@ -17,6 +17,16 @@
   left: 120px;
   font-size: 1.125em;
   font-family: 'La Belle Aurore', cursive;
+  transition: opacity 1s ease;
+  
+}
+
+.hidden-tags{
+  opacity: 0;
+}
+
+.show-tags{
+  opacity: 1;
 }
 
 .bottom-tag-html {
@@ -52,7 +62,7 @@
       font-family: 'Coolvetica';
       color: #8EF4FF;
       font-weight: 400;
-      margin-top: 0;
+      margin-top: 10px;
       position: relative;
       margin-bottom: 40px;
       left: -10px;
@@ -136,6 +146,11 @@
       color: #fff;
     }
   }
+  
+}
+.tsparticles-cube{
+  grid-column: 2;
+  // border: solid grey 2px;
 }
 
 @media screen and (max-width: 1200px){
@@ -164,17 +179,21 @@
         box-sizing: border-box;
       }
       h1.page-title {
-        margin-left: 20px;
-        margin-top: 20px;
+        margin-left: 50px;
+        margin-top: 50px;
       }
       
       .images-container {
-        justify-content: center;
+        justify-content: space-around;
         padding: 2.5%;
+        gap: 1%;
       }
       .image-box {
-        height: 200px;
-        max-width: calc(50% - 10px);
+        flex: 1 1;
+        margin: 1%;
+        max-height: 200px;
+        min-width: 200px;
+        max-width: 300px;
       }
 
 
