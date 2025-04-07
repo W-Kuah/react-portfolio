@@ -117,9 +117,16 @@
 
 @keyframes brakeIn {
   0% {
+    opacity: 0;
     translate: 0 90%;
   }  
+
+  50% {
+    opacity: 0.5;
+  }  
+
   100% {
+    opacity: 1;
     translate: 0 0%;
   }
 }
