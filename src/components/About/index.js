@@ -67,25 +67,27 @@ const About = () => {
         </div>
 
         <div className="stage-cube-cont">
-        {/* <ParticlesCube/> */}
-          <div className="cubespinner">
-            <div className="face1">
-              <FontAwesomeIcon icon={faReact} color="#61DBFB" />
-            </div>
-            <div className="face2">
-              <FontAwesomeIcon icon={faNodeJs} color="#68A063" />
-            </div>
-            <div className="face3">
-              <FontAwesomeIcon icon={faPython} color="#306998" />
-            </div>
-            <div className="face4">
-              <FontAwesomeIcon icon={faAws} color="000000" />
-            </div>
-            <div className="face5">
-              <FontAwesomeIcon icon={faJava} color="#f89820" />
-            </div>
-            <div className="face6">
-              <FontAwesomeIcon icon={faGitAlt} color="#EC4D28" />
+        <ParticlesCube/>
+          <div className="cubethrower">
+            <div className="cubespinner">
+              <div className="face1">
+                <FontAwesomeIcon icon={faReact} color="#61DBFB" />
+              </div>
+              <div className="face2">
+                <FontAwesomeIcon icon={faNodeJs} color="#68A063" />
+              </div>
+              <div className="face3">
+                <FontAwesomeIcon icon={faPython} color="#306998" />
+              </div>
+              <div className="face4">
+                <FontAwesomeIcon icon={faAws} color="000000" />
+              </div>
+              <div className="face5">
+                <FontAwesomeIcon icon={faJava} color="#f89820" />
+              </div>
+              <div className="face6">
+                <FontAwesomeIcon icon={faGitAlt} color="#EC4D28" />
+              </div>
             </div>
           </div>
         </div>

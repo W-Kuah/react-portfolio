@@ -138,13 +138,14 @@
         .text-zone {
             grid-column: 1/ 3; 
             grid-row: 1;
+            width: 100%;
         }
         .map-wrap {
             grid-column: 1 / 3;
             grid-row: 2;
               margin: 0;
               width: 100%;
-              height: 400px;
+              height: 575px;
         }
         
         .info-map {
