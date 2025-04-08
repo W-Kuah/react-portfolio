@@ -1,26 +1,46 @@
+
+.about-page.container {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  align-items: center;
+  width: calc(100vw - 140px);
+  // height: auto;
+  // position: static;
+
+}
+
 .stage-cube-cont {
-    width: 50%;
+    grid-column: 2;
+    grid-row: 1 / 3;
+    justify-self: center;
+    align-self: center;
+    width: 100%;
     height: 100%;
-    top: 0;
-    padding-top: 18%;
-    margin-left: 0;
-    position: absolute;
-    right: 0;
-    overflow: hidden;
-    translate: 0 90%;
-    animation: brakeIn 1.5s cubic-bezier(0.5, 1.5, 0.5, 1) 1.5s forwards
+    // top: 0;
+    // padding-top: 18%;
+    // margin-left: 0;
+    // position: absolute;
+    // right: 0;
+    overflow: display;
+    translate: 0 100%;
+    animation: brakeIn 1.5s cubic-bezier(0.5, 1.5, 0.5, 1) 1.5s forwards;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   
   
   .cubespinner {
+    width: 150px;
+    height: 200px;
     animation-name: spincube;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     animation-duration: 12s;
     transform-style: preserve-3d;
     transform-origin: 100px 100px 0;
-    margin-left: calc(50% - 100px);
     
   
     div {
@@ -57,18 +77,21 @@
     }
 }
 
-
+.text-zone.about-text{
+  grid-column: 1;
+  grid-row: 1 / 3 ;
+}
 
 .tsparticles-cube-container {
   display: grid;
-  grid-template: 60% 669px / 1fr 1fr;
+  grid-template: 1fr 30rem / 1fr 1fr;
   position: absolute;
   // border: 5px solid #d73737;
   // margin: -10px;
   opacity: 0;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 60px;
+  width: calc(100% - 60px);
   height: 100%;
   z-index: 1;
   animation: fadeInVar2 1s ease-out 2s forwards
@@ -77,9 +100,10 @@
 
 
 .tsparticles-cube{
-  display: relative;
+  display: absolute;
   grid-column: 2;
-  // border: solid grey 2px;
+  grid-row: 1 / 3;
+  border: solid grey 2px;
 }
   
 @keyframes spincube {
@@ -118,7 +142,7 @@
 @keyframes brakeIn {
   0% {
     opacity: 0;
-    translate: 0 90%;
+    translate: 0 100%;
   }  
 
   50% {
@@ -132,20 +156,52 @@
 }
 
 @media screen and (max-width: 1200px) {
+  .page > .about-page.container {
+    grid-template: 1fr 1fr / 1fr 1fr;
+    // justify-content:center;
+    // width: calc(100% - 53px);
+  }
     .stage-cube-cont {
-        position: initial;
-        width: 100%;
-        height: 0%;
-        margin-top: -40px;
-        padding-bottom: 300px;
-        overflow: visible;
+        grid-column: 1 / 3;
+        grid-row: 2 ;
+        margin-left: -20%;
+        width: 100vw;
+        // margin-top: 5vh;
+        // margin-top: 5%;
+        // height: 140%;
+        
+        
+    }
+    .cubespinner{
+      margin-top: 100px;
+      align-self: flex-start;
+      scale: 0.9;
+      // width: 100vw;
+      // width: 80%;
     }
 
-    .tsparticles-cube-container .tsparticles-cube{
-      grid-column: 1 / 2;
-      grid-row: 2 / 3;
-      
+    .text-zone.about-text{
+      grid-column: 1 / 3;
+      grid-row: 1 ;
+      display: flex;
+      width: 80%;
+      flex-flow: column wrap;
+      // > * {
+      //   flex-shrink: 1;
+      // }
     }
+
+    // .tsparticles-cube-container {
+    //   // grid-template: 1fr;
+    //   // align-items: flex-start;
+    //   left: 0;
+    //   width: 102.5%;
+    //   height:  100%;
+    // } .tsparticles-cube{
+    //   grid-column: 1 / 2;
+    //   grid-row:  3;
+      
+    // } 
 
 }
 

@@ -34,18 +34,18 @@
 }
 
 .container {
-  width: 100%;
+  width: 80%;
   will-change: contents;
-  height: 90%;
-  min-height: 566px;
-  position: absolute;
+  height: 85%;
+  position: relative;
   opacity: 0;
-  top: 5%;
-  margin: 0 auto;
+  top: 10%;
+  left: 140px;
   z-index: 1;
   transform-style: preserve-3d;
   animation: fadeIn 1s forwards;
   animation-delay: 1s;
+  
 }
 
 .container.contact-page,
@@ -65,7 +65,6 @@
       margin-top: 10px;
       position: relative;
       margin-bottom: 40px;
-      left: -10px;
       white-space: nowrap;
 
       &:before {
@@ -130,16 +129,16 @@
       }
     }
 
-  .text-zone {
-    position: absolute;
-    left: 10%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 35%;
-    vertical-align: middle;
-    display: table-cell;
-    max-height: 90%;
-  }
+  // .text-zone {
+  //   position: absolute;
+  //   left: 10%;
+  //   top: 50%;
+  //   transform: translateY(-50%);
+  //   width: 35%;
+  //   vertical-align: middle;
+  //   display: table-cell;
+  //   max-height: 90%;
+  // }
 
   .text-animate-hover {
     &:hover {
@@ -148,40 +147,66 @@
   }
   
 }
-.tsparticles-cube{
-  grid-column: 2;
-  // border: solid grey 2px;
-}
+// @media screen and (max-width: 1200px){
+//   .show-tags {
+//     opacity: 0;
+//   }
+//   .image-box {
+//     flex: 1 1;
+//   }
+// }
 
 @media screen and (max-width: 1200px){
+  
   .page {
     position: initial;
   }
-
+  // .container {
+  //   width: 80%;
+  //   will-change: contents;
+  //   height: 85%;
+  //   position: relative;
+  //   opacity: 0;
+  //   top: 10%;
+  //   left: 15%;
+  //   z-index: 1;
+  //   transform-style: preserve-3d;
+  //   animation: fadeIn 1s forwards;
+  //   animation-delay: 1s;
+    
+  // }
   .container {
-    position: initial;
-    height: auto;
-    min-height: auto;
+    // position: initial;
+    // height: auto;
+    // min-height: auto;
+    
 
+    &.home-page{
+      left: 0%;
+      width: 100%;
+      padding: 0%;
+      margin: 0;
+    }
     &.contact-page,
     &.about-page,
     &.portfolio-page {
+      left: 0%;
       width: 100%;
-      padding: 10px;
+      padding: 0 10% 0 10%;
       box-sizing: border-box;
       
-      .text-zone {
-        position: initial;
-        transform: none;
-        width: 100%;
-        display: block;
-        padding: 50px;
-        box-sizing: border-box;
-      }
-      h1.page-title {
-        margin-left: 50px;
-        margin-top: 50px;
-      }
+      // .text-zone {
+      //   position: initial;
+      //   transform: none;
+      //   width: 100%;
+      //   display: block;
+      //   padding: 50px;
+      //   box-sizing: border-box;
+      // }
+      // h1.page-title {
+      //   margin-left: 50px;
+      //   margin-top: 50px;
+      // }
       
       .images-container {
         justify-content: space-around;
@@ -195,7 +220,7 @@
         min-width: 200px;
         max-width: 300px;
       }
-
+      
 
       
       

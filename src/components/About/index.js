@@ -28,12 +28,12 @@ const About = () => {
 
   return (
     <>
-      <div className="tsparticles-cube-container">
+      {/* <div className="tsparticles-cube-container">
         <div></div>
         <ParticlesCube/>
-      </div>
+      </div> */}
       <div className="container about-page">
-        <div className="text-zone">
+        <div className="text-zone about-text">
           <h1>
             <AnimatedLetters
               letterClass={letterClass}
@@ -67,6 +67,7 @@ const About = () => {
         </div>
 
         <div className="stage-cube-cont">
+        {/* <ParticlesCube/> */}
           <div className="cubespinner">
             <div className="face1">
               <FontAwesomeIcon icon={faReact} color="#61DBFB" />
