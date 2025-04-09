@@ -22,6 +22,6 @@
 
 @for $i from 1 through 41 {
   .text-animate._#{$i} {
-    animation-delay: #{$i / 12}s;
+    animation-delay: #{calc($i / 12)}s;
   }
 }
