@@ -1,17 +1,44 @@
-import { useEffect, useState } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import Loader from 'react-loaders'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 import "leaflet-defaulticon-compatibility";
-import { useRef } from 'react'
 import emailjs from '@emailjs/browser'
 import AnimatedLetters from '../AnimatedLetters'
+import ReCAPTCHA from "react-google-recaptcha";
 import './index.scss'
+
+
 
 const Contact = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
-  const form = useRef()
+  const form = useRef();
+  const recaptchaRef = useRef();
+
+  const [isVerified, setIsVerified] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    if (!isVerified) {
+      alert("Please verify you're not a robot");
+      return;
+    }
+
+    emailjs
+      .sendForm('service_5ztkovh', 'template_219rq6u', form.current, 'BiNv_s3m-UPXMHGtA')
+      .then(() => {
+        alert('Message successfully sent!');
+        window.location.reload(false);
+      })
+      .catch(() => {
+        alert('Failed to send the message, please try again');
+      });
+  }
+  const handleRecaptchaChange = (token) => {
+    setIsVerified(!!token);
+  }
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -21,23 +48,7 @@ const Contact = () => {
     return () => {
         clearTimeout(timer);
     }
-});
-
-  const sendEmail = (e) => {
-    e.preventDefault()
-
-    emailjs
-      .sendForm('service_5ztkovh', 'template_219rq6u', form.current, 'BiNv_s3m-UPXMHGtA')
-      .then(
-        () => {
-          alert('Message successfully sent!')
-          window.location.reload(false)
-        },
-        () => {
-          alert('Failed to send the message, please try again')
-        }
-      )
-  }
+  });
 
   return (
     <>
@@ -83,9 +94,20 @@ const Contact = () => {
                     required
                   ></textarea>
                 </li>
-                <li>
+                <li className="part-send">
                   <input type="submit" className="flat-button" value="SEND" />
                 </li>
+                <li className="part-captcha">
+                  <ReCAPTCHA
+                    className="contact-recaptcha"
+                    ref={recaptchaRef}
+                    sitekey="6Lfc2hArAAAAAPxP7675BxZ7Ej0bLl7s8t4qDcJW"
+                    onChange={handleRecaptchaChange}
+                    theme="dark"
+                    size="normal"
+                  />
+                </li>
+                
               </ul>
             </form>
           </div>
