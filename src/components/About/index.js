@@ -16,24 +16,12 @@ import ParticlesCube from './ParticlesCube'
 
 const query = `
         query {
-            homePage(id: "4wcjQtrSDjXaY4qwqN7xYH") {
-                jobTitles
-            }
             aboutPage (id: "6p9LN1Cg5EMcfAIDGqwtI4") {
                 introduction
                 preAmble
                 point1
                 point2
                 point3
-            }
-            portfolioPageElementCollection {
-                items {
-                portfolioElementTitle
-                portfolioElementTags
-                }
-            }
-            mapPage (id: "2roLVKn18LMxeypG5ClU5") {
-                prompt
             }
         }`
 
