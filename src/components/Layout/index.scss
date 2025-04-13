@@ -204,7 +204,7 @@
       //   box-sizing: border-box;
       // }
       // h1.page-title {
-      //   margin-left: 50px;
+      //   margin-``: 50px;
       //   margin-top: 50px;
       // }
       
@@ -229,4 +229,30 @@
   }
   
 }
+@media screen and (max-height: 750px) and (min-width: 1201px){
+  .container.contact-page, .container.about-page, .container.portfolio-page{
+    align-items: flex-start;
+
+  }
+  .tags {
+    opacity: 0;
+    
+  }
+  .container {
+    overflow:scroll;
+  }
+  .top-tags {
+    opacity: 0;
+  }
+  
+}
+
+
+  
+ 
+
+
+
+
+
 
