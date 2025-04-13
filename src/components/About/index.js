@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useGraphQL } from '../../hooks/useGraphQL';
 import {
   faPython,
   faNodeJs,
@@ -13,25 +14,63 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './index.scss'
 import ParticlesCube from './ParticlesCube'
 
+const query = `
+        query {
+            aboutPage (id: "6p9LN1Cg5EMcfAIDGqwtI4") {
+                introduction
+                preAmble
+                point1
+                point2
+                point3
+            }
+        }`
+
 const About = () => {
-  const [letterClass, setLetterClass] = useState('text-animate')
+    const { callQuery } = useGraphQL();
+      
+    const [aboutData, setAboutData] = useState(null);
+    const [isHidden, setIshidden] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-        setLetterClass('text-animate-hover');
-    }, 3000);
+    const [letterClass, setLetterClass] = useState('text-animate')
 
-    return () => {
-        clearTimeout(timer);
-    }
-});
+    useEffect(() => {
+      const fetchData = async () => {
+            const result = await callQuery(query);
+            if (result) {
+                setAboutData(result.data);
+            }
+      };
+      fetchData();
+    }, [callQuery]);
+    
+    useEffect(() => {
+        if (aboutData) { 
+            const timer = setTimeout(() => {
+              setIshidden(true);
+            }, 250);
+      
+            return () => clearTimeout(timer);
+        }
+    }, [aboutData]);
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLetterClass('text-animate-hover');
+        }, 3000);
+
+        return () => {
+            clearTimeout(timer);
+        }
+  });
+  if (!aboutData) {
+          return (
+              <div>
+                  <Loader className="loader-active" type="triangle-skew-spin" />
+              </div>
+          )
+      } 
   return (
     <>
-      {/* <div className="tsparticles-cube-container">
-        <div></div>
-        <ParticlesCube/>
-      </div> */}
       <div className="container about-page">
         <div className="text-zone about-text">
           <h1>
@@ -42,26 +81,22 @@ const About = () => {
             />
           </h1>
           <p>
-          Results-driven software engineer focused on collaborative development using trunk-based workflow to implement user-centric applications. 
-          I am interested in a position where I can leverage and develop my skills in front-end frameworks, APIs, testing and cloud.
+          {aboutData.aboutPage.introduction}
           </p>
           <p align="LEFT">
-            "Hey! - anyone can learn to code! <u>So what's so special about you?</u>"
+            {aboutData.aboutPage.preAmble}
           </p>
           <ul>
               <li id="point">
-                I have experience working in <b>cross-functional teams</b> - knowing how to properly <b>communicate</b> and <b>reassure</b> stakeholders 
-                that aren't necessarily software developers or techies is an important skill I have cultivated.
+                {aboutData.aboutPage.point1}
               </li>
               <br></br>
               <li id="point">
-                I excel at being an <b>introvert</b> and an <b>extrovert</b> - whether you need me tightly coordinating with a team or going solo on a project,
-                I deliver my best with <b>versatility</b> and <b>enthusiasm</b>. 
+                {aboutData.aboutPage.point2} 
               </li>
               <br></br>
               <li id="point">
-                I believe in <b>pro-active communication</b> - working with a new hire can be tricky, 
-                I relish the opportunity to dive in, ask questions, <b>actively seek feedback</b>, and <b>quickly adapt</b> to the team's dynamics.
+                {aboutData.aboutPage.point3} 
               </li>
             </ul>
         </div>
@@ -92,7 +127,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <Loader type="triangle-skew-spin" />
+      <Loader type="triangle-skew-spin" className={`${isHidden ? "loader-hidden" : "loader-active"} loader-delay`} />
     </>
   )
 }

@@ -3,7 +3,7 @@
   opacity: 0;
   animation: bounceIn;
   animation-duration: 1s;
-  animation-delay: 1s;
+  animation-delay: 500ms;
   animation-fill-mode: forwards;
   min-width: 10px;
 }
@@ -22,6 +22,6 @@
 
 @for $i from 1 through 41 {
   .text-animate._#{$i} {
-    animation-delay: #{calc($i / 12)}s;
+    animation-delay: #{calc(($i / 12) - 0.4)}s;
   }
 }
