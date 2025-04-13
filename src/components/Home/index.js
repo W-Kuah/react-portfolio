@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useGraphQL } from '../../hooks/useGraphQL';
 import LogoTitle from '../../assets/images/logo-s.png'
 import AnimatedLetters from '../AnimatedLetters';
 import Logo from './Logo';
@@ -8,8 +9,38 @@ import Loader from 'react-loaders';
 import ParticlesHome from './ParticlesHome';
 
 
+const query = `
+        query {
+            homePage(id: "4wcjQtrSDjXaY4qwqN7xYH") {
+                jobTitles
+            }
+            aboutPage (id: "6p9LN1Cg5EMcfAIDGqwtI4") {
+                introduction
+                preAmble
+                point1
+                point2
+                point3
+            }
+            portfolioPageElementCollection {
+                items {
+                portfolioElementTitle
+                portfolioElementTags
+                }
+            }
+            mapPage (id: "2roLVKn18LMxeypG5ClU5") {
+                prompt
+            }
+        }`
+
 const Home = () => {
+    const { callQuery } = useGraphQL();
+
+    const [homeData, setHomeData] = useState(null);
+    const [isHidden, setIshidden] = useState(false);
     const [letterClass, setLetterClass] = useState('text-animate')
+    
+
+
     const nameArray = ['a', 'r', 'r', 'e', 'n', ',']
     const jobArray = [
         'S', 
@@ -26,6 +57,29 @@ const Home = () => {
         'v',
         '.'
     ]
+    
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await callQuery(query);
+            if (result) {
+                setHomeData(result.data);
+            }
+        };
+        fetchData();
+    }, [callQuery]);
+
+    useEffect(() => {
+        if (homeData) { 
+          const timer = setTimeout(() => {
+            setIshidden(true);
+          }, 500);
+    
+          return () => clearTimeout(timer);
+        }
+    }, [homeData]);
+
+    
     useEffect(() => {
         const timer = setTimeout(() => {
             setLetterClass('text-animate-hover');
@@ -36,8 +90,15 @@ const Home = () => {
         }
     });
 
+    if (!homeData) {
+        return (
+            <div>
+                <Loader className="loader-active" type="triangle-skew-spin" />
+            </div>
+        )
+    } 
 
-
+    
     return (
         <>  
             <div className="tsparticles-home-container"> 
@@ -60,14 +121,14 @@ const Home = () => {
                     strArray={jobArray}
                     idx={29}/>
                     </h1>
-                    <h2>Full-Stack Developer / Process Analyst</h2>
+                    <h2>{homeData.homePage.jobTitles}</h2>
                     <Link to="/contact" className='flat-button'>
                         CONTACT ME
                     </Link>
                 </div>
                 <Logo />
             </div>
-            <Loader type="triangle-skew-spin" />
+            <Loader type="triangle-skew-spin" className={`${isHidden ? "loader-hidden" : "loader-active"}`} />
         </>
     )
 }

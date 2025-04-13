@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react'
+import { useGraphQL } from '../../hooks/useGraphQL';
 import Loader from 'react-loaders'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -9,14 +10,60 @@ import AnimatedLetters from '../AnimatedLetters'
 import ReCAPTCHA from "react-google-recaptcha";
 import './index.scss'
 
-
+const query = `
+        query {
+            homePage(id: "4wcjQtrSDjXaY4qwqN7xYH") {
+                jobTitles
+            }
+            aboutPage (id: "6p9LN1Cg5EMcfAIDGqwtI4") {
+                introduction
+                preAmble
+                point1
+                point2
+                point3
+            }
+            portfolioPageElementCollection {
+                items {
+                portfolioElementTitle
+                portfolioElementTags
+                }
+            }
+            mapPage (id: "2roLVKn18LMxeypG5ClU5") {
+                prompt
+            }
+        }`
 
 const Contact = () => {
+  const { callQuery } = useGraphQL();
+      
+  const [contactData, setContactData] = useState(null);
+  const [isHidden, setIshidden] = useState(false);
+
   const [letterClass, setLetterClass] = useState('text-animate')
   const form = useRef();
   const recaptchaRef = useRef();
 
   const [isVerified, setIsVerified] = useState(false);
+
+  useEffect(() => {
+        const fetchData = async () => {
+              const result = await callQuery(query);
+              if (result) {
+                  setContactData(result.data);
+              }
+        };
+        fetchData();
+      }, [callQuery]);
+      
+      useEffect(() => {
+          if (contactData) { 
+              const timer = setTimeout(() => {
+                setIshidden(true);
+              }, 500);
+        
+              return () => clearTimeout(timer);
+          }
+      }, [contactData]);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -50,6 +97,14 @@ const Contact = () => {
     }
   });
 
+  if (!contactData) {
+          return (
+              <div>
+                  <Loader className="loader-active" type="triangle-skew-spin" />
+              </div>
+          )
+      } 
+
   return (
     <>
       <div className="container contact-page">
@@ -62,9 +117,7 @@ const Contact = () => {
             />
           </h1>
           <p>
-            I am interested in a challenging developer role where I can leverage and develop my skills in front-end, back-end, and data to provide tangible value to users.
-            If you have any queries or you are just looking to have chat, feel free to reach out.
-          </p>
+           {contactData.mapPage.prompt} </p>
           <div className="contact-form">
             <form ref={form} onSubmit={sendEmail}>
               <ul>
@@ -133,7 +186,7 @@ const Contact = () => {
           </MapContainer>
         </div>
       </div>
-      <Loader type="triangle-skew-spin" />
+      <Loader type="triangle-skew-spin" className={`${isHidden ? "loader-hidden" : "loader-active"}`} />
     </>
   )
 }
