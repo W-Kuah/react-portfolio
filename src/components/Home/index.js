@@ -21,6 +21,7 @@ const Home = () => {
 
     const [homeData, setHomeData] = useState(null);
     const [isHidden, setIshidden] = useState(false);
+
     const [letterClass, setLetterClass] = useState('text-animate')
     
 
@@ -57,7 +58,7 @@ const Home = () => {
         if (homeData) { 
           const timer = setTimeout(() => {
             setIshidden(true);
-          }, 500);
+          }, 250);
     
           return () => clearTimeout(timer);
         }
@@ -112,7 +113,7 @@ const Home = () => {
                 </div>
                 <Logo />
             </div>
-            <Loader type="triangle-skew-spin" className={`${isHidden ? "loader-hidden" : "loader-active"}`} />
+            <Loader type="triangle-skew-spin" className={`${isHidden ? "loader-hidden" : "loader-active"} loader-delay`} />
         </>
     )
 }

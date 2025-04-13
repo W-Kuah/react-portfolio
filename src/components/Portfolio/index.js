@@ -3,15 +3,19 @@ import { useGraphQL } from '../../hooks/useGraphQL';
 import Loader from 'react-loaders';
 import "./index.scss";
 import AnimatedLetters from '../AnimatedLetters';
-import portfolioDataTemp from '../../data/portfolio.json';
 
 const query = `
         query {
             portfolioPageElementCollection {
                 items {
-                portfolioElementTitle
-                portfolioElementTags
+                    portfolioElementTitle
+                    portfolioElementTags
+                    portfolioElementImage {
+                        url
+                    }
+                    elementDestination
                 }
+                total
             }
         }`
 
@@ -38,7 +42,9 @@ const Portfolio = () => {
             if (portfolioData) { 
                 const timer = setTimeout(() => {
                   setIshidden(true);
-                }, 500);
+                  console.log(portfolioData);
+                  console.log(portfolioData.portfolioPageElementCollection.items[0])
+                }, 250);
           
                 return () => clearTimeout(timer);
             }
@@ -59,19 +65,22 @@ const Portfolio = () => {
             <div className="images-container">
                 {
                     portfolio.map((port, idx) => {
+                        console.log(`port: ${port}`);
+                        console.log(`idx: ${idx}`);
                         return (
                             <div className="image-box" key={idx}>
+                                <i></i>
                                 <img 
-                                    src={port.cover}
+                                    src={port.portfolioElementImage.url}
                                     className="portfolio-image"
                                     alt="portfolio"
                                 />
                                 <div className="content">
-                                    <p className="title">{port.title}</p>
-                                    <h4 className="description">{port.description}</h4>
+                                    <p className="title">{port.portfolioElementTitle}</p>
+                                    <h4 className="description">{port.portfolioElementTags.join(", ")}</h4>
                                     <button
                                         className="btn"
-                                        onClick={() => window.open(port.url)}
+                                        onClick={() => window.open(port.elementDestination)}
                                     >View</button> 
                                 </div>
                             </div>
@@ -79,6 +88,7 @@ const Portfolio = () => {
                     })
                 }
             </div>
+            
         );
     }
 
@@ -100,9 +110,9 @@ const Portfolio = () => {
                         letterClass={letterClass}
                     />
                 </h1>
-                <div>{renderPortfolio(portfolioDataTemp.portfolio)}</div>
+                <div>{renderPortfolio(portfolioData.portfolioPageElementCollection.items)}</div>
             </div>
-            <Loader type="triangle-skew-spin" className={`${isHidden ? "loader-hidden" : "loader-active"}`}/>
+            <Loader type="triangle-skew-spin" className={`${isHidden ? "loader-hidden" : "loader-active"} loader-delay`}/>
         
         </>
     )  

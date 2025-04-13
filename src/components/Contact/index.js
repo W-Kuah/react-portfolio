@@ -43,7 +43,7 @@ const Contact = () => {
           if (contactData) { 
               const timer = setTimeout(() => {
                 setIshidden(true);
-              }, 500);
+              }, 250);
         
               return () => clearTimeout(timer);
           }
@@ -170,7 +170,7 @@ const Contact = () => {
           </MapContainer>
         </div>
       </div>
-      <Loader type="triangle-skew-spin" className={`${isHidden ? "loader-hidden" : "loader-active"}`} />
+      <Loader type="triangle-skew-spin" className={`${isHidden ? "loader-hidden" : "loader-active"} loader-delay`} />
     </>
   )
 }
