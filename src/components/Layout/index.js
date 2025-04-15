@@ -28,9 +28,9 @@ const Layout = () => {
         <span className={`tags bottom-tags ${hiddenTag}`}>
           &lt;/body&gt;
           <br />
-          <span className={`bottom-tag-html ${hiddenTag}`}>
+          {/* <span className={`bottom-tag-html ${hiddenTag}`}>
             &lt;/html&gt;
-            </span>
+            </span> */}
         </span>
       </div>
     </div>
