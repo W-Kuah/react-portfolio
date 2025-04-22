@@ -87,7 +87,7 @@ const Contact = () => {
             }}
           >
             <ContactForm/>
-          </GoogleReCaptchaProvider>
+          </GoogleReCaptchaProvider >
           </div>
         </div>
         <div className="info-map">
@@ -149,7 +149,6 @@ const ContactForm = () => {
           alert('Form submission expired. Please try again.');
           return;
         }
-        console.log(result);
         throw new Error(result.error || 'Submission failed');
       }
 
