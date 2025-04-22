@@ -34,7 +34,7 @@
             opacity: 0;
             height: auto;
             animation: rotateIn 0.7s linear both;
-            animation-delay: 1.4s;
+            animation-delay: 1s;
             white-space: nowrap;
         }
     }
@@ -47,7 +47,7 @@
         font-family: sans-serif;
         letter-spacing: 3px;
         text-align: center;;
-        animation: fadeIn 1s 3.7s backwards;
+        animation: fadeIn 1s 3s backwards;
         
     }
 
@@ -63,7 +63,7 @@
         margin-top: 25px;
         float: left;
         
-        animation: fadeIn 1s 3.7s backwards;
+        animation: fadeIn 1s 3s backwards;
         white-space: nowrap;
 
 
@@ -126,5 +126,5 @@
   opacity: 0;
   z-index: -1;
   animation: fadeIn 3s ease-in-out forwards;
-  animation-delay: 1s;
+  animation-delay: 2s;
 }
