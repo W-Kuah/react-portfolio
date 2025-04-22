@@ -5,9 +5,9 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 import "leaflet-defaulticon-compatibility";
-import emailjs from '@emailjs/browser'
 import AnimatedLetters from '../AnimatedLetters'
-import ReCAPTCHA from "react-google-recaptcha";
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+
 import './index.scss'
 
 const query = `
@@ -24,10 +24,7 @@ const Contact = () => {
   const [isHidden, setIshidden] = useState(false);
 
   const [letterClass, setLetterClass] = useState('text-animate')
-  const form = useRef();
-  const recaptchaRef = useRef();
 
-  const [isVerified, setIsVerified] = useState(false);
 
   useEffect(() => {
         const fetchData = async () => {
@@ -48,28 +45,6 @@ const Contact = () => {
               return () => clearTimeout(timer);
           }
       }, [contactData]);
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    if (!isVerified) {
-      alert("Please verify you're not a robot");
-      return;
-    }
-
-    emailjs
-      .sendForm('service_5ztkovh', 'template_219rq6u', form.current, 'BiNv_s3m-UPXMHGtA')
-      .then(() => {
-        alert('Message successfully sent!');
-        window.location.reload(false);
-      })
-      .catch(() => {
-        alert('Failed to send the message, please try again');
-      });
-  }
-  const handleRecaptchaChange = (token) => {
-    setIsVerified(!!token);
-  }
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -103,50 +78,16 @@ const Contact = () => {
           <p>
            {contactData.mapPage.prompt} </p>
           <div className="contact-form">
-            <form ref={form} onSubmit={sendEmail}>
-              <ul>
-                <li className="half">
-                  <input placeholder="Name" type="text" name="name" required />
-                </li>
-                <li className="half">
-                  <input
-                    placeholder="Email"
-                    type="email"
-                    name="email"
-                    required
-                  />
-                </li>
-                <li>
-                  <input
-                    placeholder="Subject"
-                    type="text"
-                    name="subject"
-                    required
-                  />
-                </li>
-                <li>
-                  <textarea
-                    placeholder="Message"
-                    name="message"
-                    required
-                  ></textarea>
-                </li>
-                <li className="part-send">
-                  <input type="submit" className="flat-button" value="SEND" />
-                </li>
-                <li className="part-captcha">
-                  <ReCAPTCHA
-                    className="contact-recaptcha"
-                    ref={recaptchaRef}
-                    sitekey="6Lfc2hArAAAAAPxP7675BxZ7Ej0bLl7s8t4qDcJW"
-                    onChange={handleRecaptchaChange}
-                    theme="dark"
-                    size="normal"
-                  />
-                </li>
-                
-              </ul>
-            </form>
+          <GoogleReCaptchaProvider
+            reCaptchaKey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
+            scriptProps={{
+              async: true,
+              defer: true,
+              appendTo: 'head'
+            }}
+          >
+            <ContactForm/>
+          </GoogleReCaptchaProvider>
           </div>
         </div>
         <div className="info-map">
@@ -172,6 +113,107 @@ const Contact = () => {
       </div>
       <Loader type="triangle-skew-spin" className={`${isHidden ? "loader-hidden" : "loader-active"} loader-delay`} />
     </>
+  )
+}
+
+
+const ContactForm = () => {
+
+  const form = useRef();
+  const { executeRecaptcha } = useGoogleReCaptcha();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+
+    if (!executeRecaptcha) return;
+    setIsSubmitting(true);
+
+    try {
+      const token = await executeRecaptcha('contact_form_submit');
+
+      const response = await fetch('/.netlify/functions/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          formData: Object.fromEntries(new FormData(form.current)),
+          recaptchaToken: token
+        })
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        if (result.error === 'TOKEN_EXPIRED') {
+          alert('Form submission expired. Please try again.');
+          return;
+        }
+        console.log(result);
+        throw new Error(result.error || 'Submission failed');
+      }
+
+      alert('Message successfully sent!');
+      form.current.reset();
+      // emailjs
+      //   .sendForm('service_5ztkovh', 'template_219rq6u', form.current, 'BiNv_s3m-UPXMHGtA')
+      //   .then(() => {
+      //     alert('Message successfully sent!');
+      //     window.location.reload(false);
+      //   })
+      //   .catch(() => {
+      //     alert('Failed to send the message, please try again');
+      //   });
+    } catch (error) {
+      alert(error.message || 'Failed to send the message, please try again');
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+    
+
+  
+
+  return (
+    <form ref={form} onSubmit={sendEmail}>
+      <ul>
+        <li className="half">
+          <input placeholder="Name" type="text" name="name" required />
+        </li>
+        <li className="half">
+          <input
+            placeholder="Email"
+            type="email"
+            name="email"
+            required
+          />
+        </li>
+        <li>
+          <input
+            placeholder="Subject"
+            type="text"
+            name="subject"
+            required
+          />
+        </li>
+        <li>
+          <textarea
+            placeholder="Message"
+            name="message"
+            required
+          ></textarea>
+        </li>
+        <li className="part-send">
+          <input 
+            type="submit" 
+            className="flat-button" 
+            value={isSubmitting ? "SENDING..." : "SEND"}
+            disabled = {isSubmitting} />
+        </li>
+        <li className="part-captcha">
+        </li>
+      </ul>
+    </form>
   )
 }
 

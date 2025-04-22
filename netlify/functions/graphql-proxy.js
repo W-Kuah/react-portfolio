@@ -1,5 +1,3 @@
-// const fetch = require('node-fetch');
-
 exports.handler = async (event) => {
 
   const API_KEY = process.env.REACT_APP_CONTENTFUL_API_KEY;
