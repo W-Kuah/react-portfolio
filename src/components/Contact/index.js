@@ -155,15 +155,6 @@ const ContactForm = () => {
 
       alert('Message successfully sent!');
       form.current.reset();
-      // emailjs
-      //   .sendForm('service_5ztkovh', 'template_219rq6u', form.current, 'BiNv_s3m-UPXMHGtA')
-      //   .then(() => {
-      //     alert('Message successfully sent!');
-      //     window.location.reload(false);
-      //   })
-      //   .catch(() => {
-      //     alert('Failed to send the message, please try again');
-      //   });
     } catch (error) {
       alert(error.message || 'Failed to send the message, please try again');
     } finally {
@@ -204,13 +195,13 @@ const ContactForm = () => {
           ></textarea>
         </li>
         <li className="part-send">
-          <input 
+          <button 
             type="submit" 
-            className="flat-button" 
-            value={isSubmitting ? "SENDING..." : "SEND"}
-            disabled = {isSubmitting} />
-        </li>
-        <li className="part-captcha">
+            className={`flat-button ${isSubmitting ? 'submitting-disabled' : 'submit-ready'}`} 
+            disabled = {isSubmitting}
+          >
+              {isSubmitting ? "" : "SEND"}
+            </button>
         </li>
       </ul>
     </form>
