@@ -100,11 +100,11 @@ const Home = () => {
                     <img src={LogoTitle} alt="developer" />
                     <AnimatedLetters letterClass={letterClass}
                     strArray={nameArray}
-                    idx={24}/>
+                    idx={17}/>
                     <br />
                     <AnimatedLetters letterClass={letterClass}
                     strArray={jobArray}
-                    idx={29}/>
+                    idx={25}/>
                     </h1>
                     <h2>{homeData.homePage.jobTitles}</h2>
                     <Link to="/contact" className='flat-button'>
