@@ -67,6 +67,7 @@
       margin-bottom: 40px;
       white-space: nowrap;
       left: 10px;
+      width: calc(100% - 10px);
 
       &:before {
         content: '<h1>';
@@ -233,7 +234,7 @@
 @media screen and (max-height: 750px) and (min-width: 1201px){
   .container.contact-page, .container.about-page, .container.portfolio-page{
     align-items: flex-start;
-
+    left: 125px;
   }
   .tags {
     opacity: 0;
@@ -244,7 +245,7 @@
     height: 100%;
     overflow-y:scroll;
     padding-top: 2.5%;
-
+    padding-left: 15px;
 
   }
 
