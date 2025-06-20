@@ -6,7 +6,7 @@ import AnimatedLetters from '../AnimatedLetters';
 
 const query = `
         query {
-            portfolioPageElementCollection {
+            portfolioPageElementCollection(order: [order_ASC]) {
                 items {
                     portfolioElementTitle
                     portfolioElementTags
